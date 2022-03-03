@@ -7,6 +7,10 @@ namespace Library
     {
         static void Main(string[] args)
         {
+            var library = new LibraryManager("Public Nashville Library");
+
+            Console.WriteLine($"Welcome to the {library.Name} Library Management System!");
+
             Book book1 = new Book()
             {
                 Title = "The Hitchhiker's Guide to the Galaxy",
@@ -43,8 +47,10 @@ namespace Library
 
             foreach (Book book in listOfBooks)
             {
-                Console.WriteLine($"{book.Title}, by {book.Author}");
+                library.AddBook(book);
             }
+
+            library.ListBooks();
         }
     }
 }
